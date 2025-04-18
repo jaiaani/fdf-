@@ -13,9 +13,9 @@
 #ifndef FDF_H
 # define FDF_H
 
-# include "libs/get_next_line/get_next_line.h"
-# include "libs/libft/libft.h"
-# include "libs/minilibx-linux/mlx.h"
+# include "../libs/get_next_line/get_next_line.h"
+# include "../libs/libft/libft.h"
+# include "../libs/minilibx-linux/mlx.h"
 # include <X11/keysym.h>
 # include <fcntl.h>
 # include <math.h>

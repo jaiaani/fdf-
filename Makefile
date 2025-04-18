@@ -2,7 +2,12 @@ CC      =  cc
 LIBS 	= -Lmlx_linux -lmlx_Linux -Llibs/minilibx-linux -Imlx_linux -lXext -lX11 -lm -lz -Llibs/get_next_line -lget_next_line -Llibs/libft -llibft
 CFLAGS  = -Wall -Wextra -Werror
 
-SRCS    = $(wildcard fdf_matrix/*.c) $(wildcard draw/*c) $(wildcard menu/*.c) $(wildcard events_handler/*.c) $(wildcard *.c)
+SRCS    = src/fdf_matrix/helpers.c src/fdf_matrix/matrix.c \
+		  src/menu/helpers.c src/menu/axes.c src/menu/instructions.c src/menu/display_menu.c \
+		  src/events_handler/window_events.c src/events_handler/object_events.c src/events_handler/handler.c \
+		  src/transformations/rotation.c src/transformations/general.c \
+		  src/helpers.c src/draw.c src/my_mlx_pixel_put.c src/main.c
+
 OBJS    = $(SRCS:.c=.o)
 
 LIBFT_DIR = libs/libft
