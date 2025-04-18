@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   window_events.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaiane <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 14:02:27 by jaiane            #+#    #+#             */
-/*   Updated: 2025/04/18 15:31:52 by jaiane           ###   ########.fr       */
+/*   Created: 2025/04/13 13:19:44 by jaiane            #+#    #+#             */
+/*   Updated: 2025/04/13 13:19:48 by jaiane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../fdf.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-# ifndef MAX_FD
-#  define MAX_FD 1024
-# endif
-
-# include "../libft/libft.h"
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
-
-#endif
+int	close_window(t_data *data)
+{
+	mlx_destroy_image(data->mlx.connection, data->img.ptr);
+	mlx_destroy_window(data->mlx.connection, data->mlx.window);
+	mlx_destroy_display(data->mlx.connection);
+	free(data->mlx.connection);
+	free_matrix(data->fdf.matrix, data->fdf.height);
+	exit(1);
+	return (0);
+}

@@ -98,11 +98,10 @@ char	*get_remaining(char *str)
 	return (remaining);
 }
 
-
 char	*get_next_line(int fd)
 {
-	char	*line;
-	static char *buffer;
+	char		*line;
+	static char	*buffer;
 
 	if (fd == -1)
 	{
@@ -110,7 +109,6 @@ char	*get_next_line(int fd)
 		buffer = NULL;
 		return (NULL);
 	}
-
 	if (fd < 0 || fd > MAX_FD)
 		return (NULL);
 	buffer = read_line(fd, buffer);
@@ -120,4 +118,3 @@ char	*get_next_line(int fd)
 	buffer = get_remaining(buffer);
 	return (line);
 }
-

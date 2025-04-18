@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   display_menu.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaiane <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/18 14:02:27 by jaiane            #+#    #+#             */
-/*   Updated: 2025/04/18 15:31:52 by jaiane           ###   ########.fr       */
+/*   Created: 2025/04/12 20:25:04 by jaiane            #+#    #+#             */
+/*   Updated: 2025/04/13 10:39:56 by jaiane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../fdf.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
+void	display_menu(t_data *data)
+{
+	char	*menu;
+	int		y_margin;
 
-# ifndef MAX_FD
-#  define MAX_FD 1024
-# endif
-
-# include "../libft/libft.h"
-# include <stddef.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-char	*get_next_line(int fd);
-
-#endif
+	y_margin = 30;
+	menu = "------- [FDF] Menu -------";
+	mlx_string_put(data->mlx.connection, data->mlx.window, X_MARGIN, y_margin,
+		0x03fc35, menu);
+	axes_menu(data, &y_margin);
+	instructions(data);
+}
