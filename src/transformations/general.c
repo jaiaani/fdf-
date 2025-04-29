@@ -47,8 +47,8 @@ void	apply_params_to_points(t_dot *dot, float *x1, float *y1, t_data *data)
 	apply_translation(x1, y1, &z1, data->params);
 	isometric(&dot->x, &dot->y, dot->z);
 	isometric(x1, y1, z1);
-	dot->x += (WIN_W / 2) - data->fdf.center_x;
-	dot->y += (WIN_H / 2) - data->fdf.center_y;
-	*x1 += (WIN_W / 2) - data->fdf.center_x;
-	*y1 += (WIN_H / 2) - data->fdf.center_y;
+	dot->x += (data->w / 2) - data->fdf.center_x;
+	dot->y += (data->h / 2) - data->fdf.center_y;
+	*x1 += (data->w / 2) - data->fdf.center_x;
+	*y1 += (data->h / 2) - data->fdf.center_y;
 }

@@ -22,8 +22,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-# define WIN_W 1920
-# define WIN_H 1080
 # define X_MARGIN 10
 
 typedef struct s_mlx_img
@@ -84,6 +82,8 @@ typedef struct s_data
 	t_fdf		fdf;
 	t_img		img;
 	t_params	params;
+	int			w;
+	int			h;
 }				t_data;
 
 int				opened_fd(char *filepath);

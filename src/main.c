@@ -38,7 +38,8 @@ int	main(int argc, char *argv[])
 	data.mlx.conn = mlx_init();
 	if (data.mlx.conn == NULL)
 		return (1);
-	data.mlx.window = mlx_new_window(data.mlx.conn, WIN_W, WIN_H, "-");
+	mlx_get_screen_size(data.mlx.conn, &data.w, &data.h);
+	data.mlx.window = mlx_new_window(data.mlx.conn, data.w, data.h, "FDF");
 	if (data.mlx.window == NULL)
 	{
 		mlx_destroy_display(data.mlx.conn);
