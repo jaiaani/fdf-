@@ -4,7 +4,7 @@ CC := cc
 
 LIB := -L../libft -libft
 
-CCFLAGS := -Wall -Wextra -Werror -D BUFFER_SIZE=1
+CCFLAGS := -Wall -Wextra -Werror -D BUFFER_SIZE=1000
 
 RM := rm -f
 
