@@ -26,8 +26,8 @@ int	event_handler(int keysym, t_data *data)
 	reset(keysym, data, &redraw);
 	if (redraw)
 	{
-		mlx_destroy_image(data->mlx.connection, data->img.ptr);
-		mlx_clear_window(data->mlx.connection, data->mlx.window);
+		mlx_destroy_image(data->mlx.conn, data->img.ptr);
+		mlx_clear_window(data->mlx.conn, data->mlx.window);
 		draw(data);
 	}
 	return (0);

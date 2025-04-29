@@ -19,7 +19,7 @@ void	display_menu(t_data *data)
 
 	y_margin = 30;
 	menu = "------- [FDF] Menu -------";
-	mlx_string_put(data->mlx.connection, data->mlx.window, X_MARGIN, y_margin,
+	mlx_string_put(data->mlx.conn, data->mlx.window, X_MARGIN, y_margin,
 		0x03fc35, menu);
 	axes_menu(data, &y_margin);
 	instructions(data);

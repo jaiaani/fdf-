@@ -37,7 +37,7 @@ typedef struct s_mlx_img
 
 typedef struct s_mlx_data
 {
-	void		*connection;
+	void		*conn;
 	void		*window;
 }				t_mlx;
 

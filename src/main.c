@@ -35,21 +35,21 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (1);
 	data.fdf = fdf_data(argv[1]);
-	data.mlx.connection = mlx_init();
-	if (data.mlx.connection == NULL)
+	data.mlx.conn = mlx_init();
+	if (data.mlx.conn == NULL)
 		return (1);
-	data.mlx.window = mlx_new_window(data.mlx.connection, WIN_W, WIN_H, "-");
+	data.mlx.window = mlx_new_window(data.mlx.conn, WIN_W, WIN_H, "-");
 	if (data.mlx.window == NULL)
 	{
-		mlx_destroy_display(data.mlx.connection);
-		free(data.mlx.connection);
+		mlx_destroy_display(data.mlx.conn);
+		free(data.mlx.conn);
 		return (1);
 	}
 	initialize_data(&data);
 	draw(&data);
 	mlx_key_hook(data.mlx.window, event_handler, &data.mlx);
 	mlx_hook(data.mlx.window, 17, 0, close_window, &data);
-	mlx_loop(data.mlx.connection);
+	mlx_loop(data.mlx.conn);
 	free_matrix(data.fdf.matrix, data.fdf.height);
 	return (0);
 }

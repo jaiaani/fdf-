@@ -56,7 +56,7 @@ int	draw(t_data *data)
 	int	x;
 	int	y;
 
-	data->img.ptr = mlx_new_image(data->mlx.connection, WIN_W, WIN_H);
+	data->img.ptr = mlx_new_image(data->mlx.conn, WIN_W, WIN_H);
 	data->img.addr = mlx_get_data_addr(data->img.ptr, &data->img.bpp,
 			&data->img.line_len, &data->img.endian);
 	y = 0;
@@ -73,7 +73,7 @@ int	draw(t_data *data)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(data->mlx.connection, data->mlx.window,
+	mlx_put_image_to_window(data->mlx.conn, data->mlx.window,
 		data->img.ptr, 0, 0);
 	display_menu(data);
 	return (0);

@@ -14,10 +14,10 @@
 
 int	close_window(t_data *data)
 {
-	mlx_destroy_image(data->mlx.connection, data->img.ptr);
-	mlx_destroy_window(data->mlx.connection, data->mlx.window);
-	mlx_destroy_display(data->mlx.connection);
-	free(data->mlx.connection);
+	mlx_destroy_image(data->mlx.conn, data->img.ptr);
+	mlx_destroy_window(data->mlx.conn, data->mlx.window);
+	mlx_destroy_display(data->mlx.conn);
+	free(data->mlx.conn);
 	free_matrix(data->fdf.matrix, data->fdf.height);
 	exit(1);
 	return (0);
