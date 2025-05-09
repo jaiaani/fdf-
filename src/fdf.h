@@ -62,6 +62,14 @@ typedef struct s_dot
 	int			color;
 }				t_dot;
 
+typedef struct s_point_
+{
+	float		x;
+	float		y;
+	float		z;
+
+}	t_point_;
+
 typedef struct s_params
 {
 	int			zoom;
@@ -76,15 +84,25 @@ typedef struct s_params
 	float		z_angle;
 }				t_params;
 
+typedef struct s_map
+{
+	int	height;
+	int width;
+	t_point **matrix;
+} t_map;
+
 typedef struct s_data
 {
 	t_mlx		mlx;
 	t_fdf		fdf;
+	t_map	map;
 	t_img		img;
 	t_params	params;
 	int			w;
 	int			h;
 }				t_data;
+
+
 
 int				opened_fd(char *filepath);
 int				color_number(char *hex_str);
@@ -93,9 +111,9 @@ void			fdf_init(t_fdf *fdf, int fd);
 int				close_window(t_data *data);
 int				fast_atoi(char *str);
 
-void			apply_rotation(float *x, float *y, float *z, t_params params);
-void			apply_params_to_points(t_dot *dot, float *x1, float *y1,
-					t_data *data);
+void			isometric(t_point_ *point);
+
+void			apply_params_to_points(t_point_ *a, t_point_ *b, t_data *data);
 void			free_matrix(t_point **matrix, int height);
 void			free_split(char **split);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -117,4 +135,9 @@ void			translate(int keysym, t_data *data, int *redraw);
 void			reset(int keysym, t_data *data, int *redraw);
 
 t_fdf			fdf_data(char *filepath);
+
+
+t_map	parse_map(char *filepath);
+int	adraw(t_data *data);
+
 #endif
