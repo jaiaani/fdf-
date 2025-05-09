@@ -94,6 +94,10 @@ int				close_window(t_data *data);
 int				fast_atoi(char *str);
 
 void			apply_rotation(float *x, float *y, float *z, t_params params);
+void			apply_scale_factor(float *x, float *y, float *z, t_params params);
+void			apply_translation(float *x, float *y, float *z, t_params params);
+
+
 void			apply_params_to_points(t_dot *dot, float *x1, float *y1,
 					t_data *data);
 void			free_matrix(t_point **matrix, int height);

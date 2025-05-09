@@ -18,19 +18,6 @@ void	isometric(float *x, float *y, float z)
 	*y = (*x + *y) * sin(0.8) - z;
 }
 
-void	apply_scale_factor(float *x, float *y, float *z, t_params params)
-{
-	*x *= params.sf_x + params.zoom;
-	*y *= params.sf_y + params.zoom;
-	*z *= params.sf_z + params.zoom;
-}
-
-void	apply_translation(float *x, float *y, float *z, t_params params)
-{
-	*x += params.tf_x;
-	*y += params.tf_y;
-	*z += params.tf_z;
-}
 
 void	apply_params_to_points(t_dot *dot, float *x1, float *y1, t_data *data)
 {

@@ -3,9 +3,9 @@ LIBS 	= -Lmlx_linux -lmlx_Linux -Llibs/minilibx-linux -Imlx_linux -lXext -lX11 -
 CFLAGS  = -Wall -Wextra -Werror
 
 SRCS    = src/fdf_matrix/helpers.c src/fdf_matrix/matrix.c \
-		  src/menu/helpers.c src/menu/axes.c src/menu/instructions.c src/menu/display_menu.c \
+		  src/menu_bonus/helpers.c src/menu_bonus/axes.c src/menu_bonus/instructions.c src/menu_bonus/display_menu.c \
 		  src/events_handler/window_events.c src/events_handler/object_events.c src/events_handler/handler.c \
-		  src/transformations/rotation.c src/transformations/general.c \
+		  src/transformations/rotation_bonus.c src/transformations/scale_bonus.c src/transformations/translation_bonus.c src/transformations/general.c \
 		  src/helpers.c src/draw.c src/my_mlx_pixel_put.c src/main.c
 
 OBJS    = $(SRCS:.c=.o)
