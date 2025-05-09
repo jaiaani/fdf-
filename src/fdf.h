@@ -66,6 +66,7 @@ typedef struct s_point_
 {
 	float		x;
 	float		y;
+	float		z;
 
 }	t_point_;
 
@@ -110,9 +111,9 @@ void			fdf_init(t_fdf *fdf, int fd);
 int				close_window(t_data *data);
 int				fast_atoi(char *str);
 
-void			apply_rotation(float *x, float *y, float *z, t_params params);
-void			apply_params_to_points(t_dot *dot, float *x1, float *y1,
-					t_data *data);
+void			isometric(t_point_ *point);
+
+void			apply_params_to_points(t_point_ *a, t_point_ *b, t_data *data);
 void			free_matrix(t_point **matrix, int height);
 void			free_split(char **split);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);

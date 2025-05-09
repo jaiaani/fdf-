@@ -39,24 +39,24 @@ static void	bresenham(t_point_ a, t_point_ b, t_data *data)
 
 //transformations
 
-static void	isometric(float *x, float *y, float z)
+static void	isometric(t_point_ *point)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - z;
+	float x_;
+	float y_;
+
+	point->x = (x_ - y_) * cos(0.8);
+	point->y = (x_ + y_) * sin(0.8) - point->z;
 }
 
 static void	aapply_params_to_points(t_point_ *a, t_point_ *b, t_data *data)
 {
-    float   az;
-	float	bz;
-
     data->fdf.center_x = data->map.width / 2.0f;
 	data->fdf.center_y = data->map.height / 2.0f;
 
-	az= data->map.matrix[(int)b->y][(int)b->x].value;
-	bz = data->map.matrix[(int)b->y][(int)b->x].value;
-	isometric(&a->x, &a->y, az);
-	isometric(&b->x, &b->y, bz);
+	a->z= data->map.matrix[(int)b->y][(int)b->x].value;
+	b->z = data->map.matrix[(int)b->y][(int)b->x].value;
+	isometric(a);
+	isometric(b);
 	a->x += (data->w / 2) - data->fdf.center_x;
 	a->y += (data->h / 2) - data->fdf.center_y;
 	b->x += (data->w / 2) - data->fdf.center_x;
