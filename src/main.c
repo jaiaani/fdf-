@@ -34,7 +34,6 @@ int	main(int argc, char *argv[])
 
 	if (argc != 2)
 		return (1);
-	data.fdf = fdf_data(argv[1]);
 	data.map = parse_map(argv[1]);
 	data.mlx.conn = mlx_init();
 	if (data.mlx.conn == NULL)
@@ -48,10 +47,10 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	initialize_data(&data);
-	draw(&data);
+	adraw(&data);
 	mlx_key_hook(data.mlx.window, event_handler, &data.mlx);
 	mlx_hook(data.mlx.window, 17, 0, close_window, &data);
 	mlx_loop(data.mlx.conn);
-	free_matrix(data.fdf.matrix, data.fdf.height);
+	free_matrix(data.map.matrix, data.map.height);
 	return (0);
 }

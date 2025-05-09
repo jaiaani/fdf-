@@ -137,5 +137,6 @@ t_fdf			fdf_data(char *filepath);
 
 
 t_map	parse_map(char *filepath);
+int	adraw(t_data *data);
 
 #endif
