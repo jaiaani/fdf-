@@ -64,8 +64,8 @@ typedef struct s_dot
 
 typedef struct s_point_
 {
-	int		x;
-	int		y;
+	float		x;
+	float		y;
 
 }	t_point_;
 
