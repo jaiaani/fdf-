@@ -35,6 +35,7 @@ int	main(int argc, char *argv[])
 	if (argc != 2)
 		return (1);
 	data.fdf = fdf_data(argv[1]);
+	data.map = parse_map(argv[1]);
 	data.mlx.conn = mlx_init();
 	if (data.mlx.conn == NULL)
 		return (1);

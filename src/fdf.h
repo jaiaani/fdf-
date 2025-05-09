@@ -62,6 +62,13 @@ typedef struct s_dot
 	int			color;
 }				t_dot;
 
+typedef struct s_point_
+{
+	int		x;
+	int		y;
+
+}	t_point_;
+
 typedef struct s_params
 {
 	int			zoom;
@@ -76,15 +83,25 @@ typedef struct s_params
 	float		z_angle;
 }				t_params;
 
+typedef struct s_map
+{
+	int	height;
+	int width;
+	t_point **matrix;
+} t_map;
+
 typedef struct s_data
 {
 	t_mlx		mlx;
 	t_fdf		fdf;
+	t_map	map;
 	t_img		img;
 	t_params	params;
 	int			w;
 	int			h;
 }				t_data;
+
+
 
 int				opened_fd(char *filepath);
 int				color_number(char *hex_str);
@@ -117,4 +134,8 @@ void			translate(int keysym, t_data *data, int *redraw);
 void			reset(int keysym, t_data *data, int *redraw);
 
 t_fdf			fdf_data(char *filepath);
+
+
+t_map	parse_map(char *filepath);
+
 #endif
